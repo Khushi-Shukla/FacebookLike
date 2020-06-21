@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>Facebook.com</title>
+        <link rel="stylesheet" href="../CSS/fb.css">
+    </head>
+    <body bgcolor=#ddeaed>
+    <div id="h1"><b id="hh1">facebook  </b>  
+        <a style="text-decoration:none; padding: 4px;" href="Login.html" id="hh2">Create new account</a>
+      
+    </div><p><br><br><br>
+    <div id="div2">
+        <center><p>Log in to Facebook </p>
+            <input id="in1" type="text" placeholder="Email address or phone number">
+            <!--<label id="lbl1" style="visibility: hidden; color: red;">Invalid</label>--> <br><br>
+            <input id="in2" type="password" placeholder="Password"> <br><br>
+           <a style="text-decoration:none" onclick="return validate()" href="https://www.facebook.com"> 
+            <div id="div3"><center>Log In</center></div></a><br>
+            <a style="text-decoration:none;" href="https://www.facebook.com" id="lb1">Forgotten account?</a><br><br>
+            -----or-----<br><br>
+            <a style="text-decoration:none ; padding: 5px;" href="Login.html" id="hh2" >Create new account</a>
+        </center>
+    </div>
+   
+    </body>
+</html>
+<script
+  src="jquery.js"></script>
+<script>
+    $(document).ready(function(){
+       
+        $("#div3").click(validate);
+        function validate(){
+            var a=document.getElementById("in1");
+            var b=document.getElementById("in2");
+            var regx = /^[6-9][0-9]{9}$/ ;
+            var regx2 =/^([\w\.-]+)@([a-z0-9-]{2,10}).([a-z]{2,8})(.[a-z]{2,8})?$/
+            if(a.value.trim()=="" || b.value.trim()=="")
+              {
+                  alert("invalid");
+                  a.style.border= "solid 1px gray";
+                  return false;
+              }
+              else if(regx.test(a.value)||regx2.test(a.value))
+              {
+                  
+                 alert("valid");
+                 a.style.border= "solid 1px gray";
+                  return true;
+              }
+              else
+              {
+                  a.style.border= "solid 2px red";
+                  //document.getElementById("lbl1").style.visibility="visible";
+                  alert("Email/Phone number does not exist");
+                  return false;
+              }
+        }
+    })
+
+</script>
